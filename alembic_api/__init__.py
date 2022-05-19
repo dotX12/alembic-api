@@ -1,5 +1,5 @@
-from client import AlembicClient
-from server import AlembicServer
+from .client import AlembicClient
+from .server import AlembicServer
 
 
 __all__ = [
