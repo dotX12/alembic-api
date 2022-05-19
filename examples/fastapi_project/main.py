@@ -6,6 +6,7 @@ from alembic_api import AlembicClient
 from alembic_api import AlembicServer
 from binding import own_router
 from examples.fastapi_project.dependencies import HealthCheckDependencyMarker
+from examples.fastapi_project.misc import sync_engine
 from examples.fastapi_project.services import AlembicService
 
 
@@ -25,11 +26,10 @@ def get_application_v2() -> FastAPI:
                     cfg_path=os.path.dirname(__file__),
                 ),
                 server=AlembicServer(
-                    engine="sync_engine",
+                    engine=sync_engine,
                 )
             )
         }
     )
-    #     sync_engine - create_engine(DSN)
 
     return application
